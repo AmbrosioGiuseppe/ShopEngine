@@ -1,0 +1,17 @@
+v_env/*
+ecommerce/.env
+ecommerce/accounts/__pycache__/*
+ecommerce/accounts/migrations/*
+ecommerce/cart/__pycache__/*
+ecommerce/cart/migrations/*
+ecommerce/coupon/__pycache__/*
+ecommerce/coupon/migrations/*
+ecommerce/logs/__pycache__/*
+ecommerce/logs/migrations/*
+ecommerce/order/__pycache__/*
+ecommerce/order/migrations/*
+ecommerce/product/__pycache__/*
+ecommerce/product/migrations/*
+ecommerce/settings/__pycache__/*
+ecommerce/settings/migrations/*
+db.sqlite3
