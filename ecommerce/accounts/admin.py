@@ -13,6 +13,13 @@ class UserAdmin(UserAdmin):
 
 admin.site.register(User,UserAdmin)
 
+
+class EmailVerificationTokenAdmin(admin.ModelAdmin):
+    model = EmailVerificationToken
+    list_display = ['id', 'user', 'token', 'created_at']
+
+admin.site.register(EmailVerificationToken,EmailVerificationTokenAdmin)
+
 class AddressesAdmin(admin.ModelAdmin):
     model = Addresses
     list_display = ['id', 'idUser', 'recipientName', 'created', 'lastUpdate',]

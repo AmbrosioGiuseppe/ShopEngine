@@ -8,3 +8,9 @@ class LogUserAdmin(admin.ModelAdmin):
     
 admin.site.register(LogUser,LogUserAdmin)
 
+class LogSystemAdmin(admin.ModelAdmin):
+    model = LogSystem
+    list_display = ['id', 'created', 'ipSystem', 'logType', 'logCode', 'logMessage']
+    
+admin.site.register(LogSystem,LogSystemAdmin)
+

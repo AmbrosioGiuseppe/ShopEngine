@@ -31,6 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+SITE_URL = os.getenv("SITE_URL")
 
 # Application definition
 
@@ -67,7 +68,13 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'accounts/template',
+            BASE_DIR / 'cart/template',
+            BASE_DIR / 'coupon/template',
+            BASE_DIR / 'order/template',
+            BASE_DIR / 'product/template',
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,6 +118,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv("SMTP_SERVER")
+EMAIL_PORT = os.getenv("SMTP_PORT")
+EMAIL_USE_TLS = os.getenv("SMTP_TLS")  # True / False
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASSWORD")
 
 
 # Internationalization

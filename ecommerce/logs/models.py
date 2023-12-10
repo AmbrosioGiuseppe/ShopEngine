@@ -18,5 +18,14 @@ class LogUser(models.Model):
     
     def __str__(self):
         return str(self.idUser)
+
+
+class LogSystem(models.Model):
+    created         = models.DateTimeField(auto_now_add=True)
+    ipSystem        = models.CharField(max_length=100)
+    logType         = models.CharField(max_length=255,choices=EVENT_TYPE,blank=True)
+    logCode         = models.IntegerField(blank=True)
+    logMessage      = models.TextField()
     
-    
+    def __str__(self):
+        return str(self.pk)

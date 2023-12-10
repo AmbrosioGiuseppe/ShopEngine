@@ -9,6 +9,8 @@ from django.contrib.auth import authenticate
 from django.db import IntegrityError
 from .models import User
 from .serializers import UserSerializer
+from logs.functions import createUserLogs, createLogSystem
+from ecommerce.function import findPublicIP
 
 """
 @api_view(['GET'])
@@ -76,6 +78,7 @@ def registration(request):
             user = serializer.save()
             # After this line, the user should be saved successfully.
             # Sending email for successful registration
+            createUserLogs(findPublicIP(request),user,'INFO','200',f'User {user.username} created successfully')
             return Response({
                 "status": "success",
                 "errorCode": "NO_ERR",
